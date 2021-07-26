@@ -24,9 +24,7 @@ import (
 
 import (
 	"github.com/apache/dubbo-go/config"
-)
 
-import (
 	gxlog "github.com/dubbogo/gost/log"
 )
 
@@ -35,7 +33,7 @@ func init() {
 }
 
 type User struct {
-	Id   string
+	ID   string
 	Name string
 	Age  int32
 	Time time.Time

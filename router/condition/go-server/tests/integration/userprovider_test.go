@@ -23,6 +23,7 @@ import (
 	"context"
 	"testing"
 )
+
 import (
 	"github.com/stretchr/testify/assert"
 )
@@ -30,5 +31,5 @@ import (
 func TestGetUser(t *testing.T) {
 	user := &User{}
 	err := userProvider.GetUser(context.TODO(), []interface{}{"A001"}, user)
-	assert.NotNil(t, err)
+	assert.Nil(t, err)
 }

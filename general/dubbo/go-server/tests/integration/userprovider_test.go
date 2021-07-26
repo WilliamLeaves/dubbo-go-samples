@@ -21,19 +21,24 @@ package integration
 
 import (
 	"context"
-	"github.com/apache/dubbo-go-hessian2/java_exception"
-	"github.com/apache/dubbo-go-samples/general/dubbo/go-server/pkg"
 	"testing"
 )
+
 import (
+	"github.com/apache/dubbo-go-hessian2/java_exception"
+
 	"github.com/stretchr/testify/assert"
+)
+
+import (
+	"github.com/apache/dubbo-go-samples/general/dubbo/go-server/pkg"
 )
 
 func TestGetUserA000(t *testing.T) {
 	user := &User{}
 	err := userProvider.GetUser(context.TODO(), []interface{}{"A000"}, user)
 	assert.Nil(t, err)
-	assert.Equal(t, "0", user.Id)
+	assert.Equal(t, "0", user.ID)
 	assert.Equal(t, "Alex Stocks", user.Name)
 	assert.Equal(t, int32(31), user.Age)
 	assert.Equal(t, Gender(pkg.MAN), user.Sex)
@@ -44,7 +49,7 @@ func TestGetUserA001(t *testing.T) {
 	user := &User{}
 	err := userProvider.GetUser(context.TODO(), []interface{}{"A001"}, user)
 	assert.Nil(t, err)
-	assert.Equal(t, "001", user.Id)
+	assert.Equal(t, "001", user.ID)
 	assert.Equal(t, "ZhangSheng", user.Name)
 	assert.Equal(t, int32(18), user.Age)
 	assert.Equal(t, Gender(pkg.MAN), user.Sex)
@@ -55,7 +60,7 @@ func TestGetUserA002(t *testing.T) {
 	user := &User{}
 	err := userProvider.GetUser(context.TODO(), []interface{}{"A002"}, user)
 	assert.Nil(t, err)
-	assert.Equal(t, "002", user.Id)
+	assert.Equal(t, "002", user.ID)
 	assert.Equal(t, "Lily", user.Name)
 	assert.Equal(t, int32(20), user.Age)
 	assert.Equal(t, Gender(pkg.WOMAN), user.Sex)
@@ -66,7 +71,7 @@ func TestGetUserA003(t *testing.T) {
 	user := &User{}
 	err := userProvider.GetUser(context.TODO(), []interface{}{"A003"}, user)
 	assert.Nil(t, err)
-	assert.Equal(t, "113", user.Id)
+	assert.Equal(t, "113", user.ID)
 	assert.Equal(t, "Moorse", user.Name)
 	assert.Equal(t, int32(30), user.Age)
 	assert.Equal(t, Gender(pkg.WOMAN), user.Sex)
@@ -86,7 +91,7 @@ func TestGetUser2(t *testing.T) {
 	user := &User{}
 	err := userProvider.GetUser2(context.TODO(), []interface{}{int32(64)}, user)
 	assert.Nil(t, err)
-	assert.Equal(t, "64", user.Id)
+	assert.Equal(t, "64", user.ID)
 }
 
 func TestGetUser3(t *testing.T) {

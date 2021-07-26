@@ -26,11 +26,12 @@ import (
 	"github.com/apache/dubbo-go/common"
 	"github.com/apache/dubbo-go/protocol"
 	"github.com/apache/dubbo-go/remoting"
+
 	gxlog "github.com/dubbogo/gost/log"
 )
 
 type User struct {
-	Id   string
+	ID   string
 	Name string
 	Age  int32
 	Time time.Time

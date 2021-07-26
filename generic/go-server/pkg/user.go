@@ -23,12 +23,10 @@ import (
 )
 
 import (
-	"github.com/dubbogo/gost/log"
-)
-
-import (
 	hessian "github.com/apache/dubbo-go-hessian2"
 	"github.com/apache/dubbo-go/config"
+
+	"github.com/dubbogo/gost/log"
 )
 
 func init() {
@@ -38,7 +36,7 @@ func init() {
 }
 
 type User struct {
-	Id   string
+	ID   string
 	Name string
 	Age  int32
 	Time time.Time
@@ -47,8 +45,8 @@ type User struct {
 type UserProvider struct {
 }
 
-func (u *UserProvider) GetUser(ctx context.Context, userId string) (*User, error) {
-	gxlog.CInfo("req:%#v", userId)
+func (u *UserProvider) GetUser(ctx context.Context, userID string) (*User, error) {
+	gxlog.CInfo("req:%#v", userID)
 	rsp := User{"A001", "Alex Stocks", 18, time.Now()}
 	gxlog.CInfo("rsp:%#v", rsp)
 	return &rsp, nil
@@ -56,7 +54,7 @@ func (u *UserProvider) GetUser(ctx context.Context, userId string) (*User, error
 
 func (u *UserProvider) QueryUser(ctx context.Context, user *User) (*User, error) {
 	gxlog.CInfo("req1:%#v", user)
-	rsp := User{user.Id, user.Name, user.Age, time.Now()}
+	rsp := User{user.ID, user.Name, user.Age, time.Now()}
 	gxlog.CInfo("rsp1:%#v", rsp)
 	return &rsp, nil
 }

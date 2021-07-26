@@ -21,12 +21,17 @@ package integration
 
 import (
 	"context"
-	"github.com/apache/dubbo-go/common/constant"
-	"github.com/apache/dubbo-go-samples/multi-zone/go-client/pkg"
 	"testing"
 )
+
 import (
+	"github.com/apache/dubbo-go/common/constant"
+
 	"github.com/stretchr/testify/assert"
+)
+
+import (
+	"github.com/apache/dubbo-go-samples/multi-zone/go-client/pkg"
 )
 
 func TestGetUser(t *testing.T) {
@@ -39,10 +44,10 @@ func TestGetUser(t *testing.T) {
 		if err != nil {
 			panic(err)
 		}
-		if "dev-hz" == user.Id {
+		if "dev-hz" == user.ID {
 			hz++
 		}
-		if "dev-sh" == user.Id {
+		if "dev-sh" == user.ID {
 			sh++
 		}
 	}

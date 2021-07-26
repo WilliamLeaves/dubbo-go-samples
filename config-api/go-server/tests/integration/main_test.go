@@ -39,8 +39,6 @@ import (
 	_ "github.com/apache/dubbo-go/registry/zookeeper"
 )
 
-
-
 var userProvider = new(UserProvider)
 
 func TestMain(m *testing.M) {
@@ -53,7 +51,7 @@ func TestMain(m *testing.M) {
 }
 
 type User struct {
-	Id   string
+	ID   string
 	Name string
 	Age  int32
 	Time time.Time

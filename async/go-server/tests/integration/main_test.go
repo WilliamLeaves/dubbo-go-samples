@@ -33,6 +33,7 @@ import (
 	_ "github.com/apache/dubbo-go/metadata/service/inmemory"
 	"github.com/apache/dubbo-go/protocol"
 	"github.com/apache/dubbo-go/remoting"
+
 	gxlog "github.com/dubbogo/gost/log"
 )
 
@@ -50,7 +51,7 @@ func TestMain(m *testing.M) {
 }
 
 type User struct {
-	Id   string
+	ID   string
 	Name string
 	Age  int32
 	Time time.Time

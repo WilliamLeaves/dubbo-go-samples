@@ -23,6 +23,7 @@ import (
 	"context"
 	"testing"
 )
+
 import (
 	_ "github.com/apache/dubbo-go/cluster/cluster_impl"
 	_ "github.com/apache/dubbo-go/cluster/loadbalance"
@@ -31,6 +32,7 @@ import (
 	_ "github.com/apache/dubbo-go/protocol/dubbo"
 	_ "github.com/apache/dubbo-go/registry/protocol"
 	_ "github.com/apache/dubbo-go/registry/zookeeper"
+
 	"github.com/stretchr/testify/assert"
 )
 
@@ -38,14 +40,9 @@ func TestGetUser(t *testing.T) {
 	user := &User{}
 	err := userProvider.GetUser(context.TODO(), []interface{}{"A001"}, user)
 	assert.Nil(t, err)
-	assert.Equal(t, "", user.Id)
-	assert.Equal(t, "", user.Name)
-	assert.Equal(t, int32(0), user.Age)
-
 	user = <-userProvider.ch
-
 	assert.NotNil(t, user)
-	assert.Equal(t, "A001", user.Id)
+	assert.Equal(t, "A001", user.ID)
 	assert.Equal(t, "Alex Stocks", user.Name)
 	assert.Equal(t, int32(18), user.Age)
 	assert.NotNil(t, user.Time)

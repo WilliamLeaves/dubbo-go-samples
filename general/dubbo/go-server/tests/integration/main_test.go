@@ -20,26 +20,25 @@
 package integration
 
 import (
-	hessian "github.com/apache/dubbo-go-hessian2"
-	"github.com/apache/dubbo-go/config"
-
-	_ "github.com/apache/dubbo-go/cluster/cluster_impl"
-	_ "github.com/apache/dubbo-go/cluster/loadbalance"
-	_ "github.com/apache/dubbo-go/common/proxy/proxy_factory"
-	_ "github.com/apache/dubbo-go/filter/filter_impl"
-	_ "github.com/apache/dubbo-go/metadata/service/inmemory"
-	_ "github.com/apache/dubbo-go/protocol/dubbo"
-	_ "github.com/apache/dubbo-go/registry/protocol"
-	_ "github.com/apache/dubbo-go/registry/zookeeper"
-)
-
-import (
 	"context"
 	"fmt"
 	"os"
 	"strconv"
 	"testing"
 	"time"
+)
+
+import (
+	hessian "github.com/apache/dubbo-go-hessian2"
+	_ "github.com/apache/dubbo-go/cluster/cluster_impl"
+	_ "github.com/apache/dubbo-go/cluster/loadbalance"
+	_ "github.com/apache/dubbo-go/common/proxy/proxy_factory"
+	"github.com/apache/dubbo-go/config"
+	_ "github.com/apache/dubbo-go/filter/filter_impl"
+	_ "github.com/apache/dubbo-go/metadata/service/inmemory"
+	_ "github.com/apache/dubbo-go/protocol/dubbo"
+	_ "github.com/apache/dubbo-go/registry/protocol"
+	_ "github.com/apache/dubbo-go/registry/zookeeper"
 )
 
 var userProvider = new(UserProvider)
@@ -100,7 +99,7 @@ func (g Gender) EnumValue(s string) hessian.JavaEnum {
 
 type User struct {
 	// !!! Cannot define lowercase names of variable
-	Id   string
+	ID   string
 	Name string
 	Age  int32
 	Time time.Time
@@ -109,8 +108,8 @@ type User struct {
 
 func (u User) String() string {
 	return fmt.Sprintf(
-		"User{Id:%s, Name:%s, Age:%d, Time:%s, Sex:%s}",
-		u.Id, u.Name, u.Age, u.Time, u.Sex,
+		"User{ID:%s, Name:%s, Age:%d, Time:%s, Sex:%s}",
+		u.ID, u.Name, u.Age, u.Time, u.Sex,
 	)
 }
 
