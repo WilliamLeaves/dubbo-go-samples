@@ -33,7 +33,9 @@ import (
 	_ "dubbo.apache.org/dubbo-go/v3/protocol/grpc"
 	_ "dubbo.apache.org/dubbo-go/v3/registry/protocol"
 	_ "dubbo.apache.org/dubbo-go/v3/registry/zookeeper"
+
 	hessian "github.com/apache/dubbo-go-hessian2"
+
 	"github.com/dubbogo/gost/log"
 )
 
@@ -56,7 +58,7 @@ func main() {
 
 	gxlog.CInfo("\n\n\nstart to test dubbo")
 	user := &pkg.User{}
-	err := userProvider.GetUser(context.TODO(), &pkg.User{Name: "laurence"} ,user)
+	err := userProvider.GetUser(context.TODO(), &pkg.User{Name: "laurence"}, user)
 	if err != nil {
 		gxlog.CError("error: %v\n", err)
 		os.Exit(1)

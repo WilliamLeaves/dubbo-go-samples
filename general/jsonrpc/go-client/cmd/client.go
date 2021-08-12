@@ -20,7 +20,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/apache/dubbo-go-samples/general/jsonrpc/go-client/pkg"
 	"os"
 	"os/signal"
 	"syscall"
@@ -28,28 +27,28 @@ import (
 )
 
 import (
+	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster_impl"
+	_ "dubbo.apache.org/dubbo-go/v3/cluster/loadbalance"
+	"dubbo.apache.org/dubbo-go/v3/common/logger"
+	_ "dubbo.apache.org/dubbo-go/v3/common/proxy/proxy_factory"
+	"dubbo.apache.org/dubbo-go/v3/config"
+	_ "dubbo.apache.org/dubbo-go/v3/filter/filter_impl"
+	_ "dubbo.apache.org/dubbo-go/v3/protocol/jsonrpc"
+	_ "dubbo.apache.org/dubbo-go/v3/registry/protocol"
+	_ "dubbo.apache.org/dubbo-go/v3/registry/zookeeper"
+
 	"github.com/dubbogo/gost/log"
 )
 
 import (
-	"dubbo.apache.org/dubbo-go/v3/common/logger"
-	_ "dubbo.apache.org/dubbo-go/v3/common/proxy/proxy_factory"
-	"dubbo.apache.org/dubbo-go/v3/config"
-	_ "dubbo.apache.org/dubbo-go/v3/protocol/jsonrpc"
-	_ "dubbo.apache.org/dubbo-go/v3/registry/protocol"
-
-	_ "dubbo.apache.org/dubbo-go/v3/filter/filter_impl"
-
-	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster_impl"
-	_ "dubbo.apache.org/dubbo-go/v3/cluster/loadbalance"
-	_ "dubbo.apache.org/dubbo-go/v3/registry/zookeeper"
+	"github.com/apache/dubbo-go-samples/general/jsonrpc/go-client/pkg"
 )
 
 var (
 	survivalTimeout int = 10e9
-	userProvider  = new(pkg.UserProvider)
-	userProvider1 = new(pkg.UserProvider1)
-	userProvider2 = new(pkg.UserProvider2)
+	userProvider        = new(pkg.UserProvider)
+	userProvider1       = new(pkg.UserProvider1)
+	userProvider2       = new(pkg.UserProvider2)
 )
 
 func init() {
